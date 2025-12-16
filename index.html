@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ángel & Edith — Nuestra Boda</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --serif: 'Playfair Display', serif;
+      --sans: 'Inter', sans-serif;
+      --text: #1a1a1a;
+      --muted: #777;
+      --bg: #ffffff;
+      --soft: #f6f4f1;
+      --accent: #7a8f6b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .soft-bg { background: var(--soft); }
+
+    .countdown {
+      position: fixed;
+      top: 1.25rem;
+      left: 1.25rem;
+      z-index: 10;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('inicio.jfif') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.28);
+    }
+
+    .hero-content { 
+      position: relative; 
+      z-index: 1; 
+    }
+
+    .hero small {
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 0.85rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      margin: 0.75rem 0 0.5rem;
+      color: #f2efe9; /* blanco marfil calido */
+      text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    }
+
+    .hero-date {
+      font-family: var(--sans);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: #fff;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.35);
+    }
+
+    .quote {
+      background: var(--accent); /* verde olivo */
+      color: #f4f1ec;            /* marfil */
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .quote .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .quote p {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 1.5rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .celebration {
+      min-height: 80vh;
+      background: url('frase.jfif') center/cover no-repeat;
+    }
+    
+    .family {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .family { 
+      background: var(--accent);
+      color: #f2efe9; /* marfil */
+      text-align: center;
+      padding: 5rem 1.5rem;}
+
+    .family-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(242,239,233,0.4);
+      margin: 2.5rem auto;}
+
+    .family h2 { 
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.8rem;
+      margin-bottom: 2rem; }
+
+    .family-grid { 
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 4rem;}
+    
+    /* =====================
+   EVENTO
+===================== */
+
+.event {
+  background: #faf9f6; /* marfil suave */
+  padding: 6rem 1.5rem;
+}
+
+.event h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.event > .container > p {
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* línea decorativa */
+.event-divider {
+  width: 80px;
+  height: 1px;
+  background: #ccc;
+  margin: 2rem auto 3rem;
+}
+
+/* grid de ubicaciones */
+.locations {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+/* tarjeta */
+.location-card {
+  background: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+/* íconos / imágenes */
+.location-card img {
+  width: 60%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+/* títulos */
+.location-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* texto */
+.location-card p {
+  ont-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* botón */
+.locations a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.8rem;
+  border: 1px solid #333;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.35s ease;
+}
+
+.locations a:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* =====================
+   GALERÍA
+===================== */
+.gallery {
+  background: #faf9f6; /* marfil suave */
+  padding: 6rem 1.5rem;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.photo-gallery figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.photo-gallery figure:hover img {
+  transform: scale(1.06);
+}
+
+/* móvil */
+@media (max-width: 768px) {
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-gallery img {
+    height: 260px;
+  }
+}
+
+
+    .rsvp {
+  background: #faf9f6; /* marfil, consistente con la galería */
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.rsvp h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.rsvp p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.rsvp-btn {
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 1rem 3.5rem;
+  border: 1px solid var(--accent);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent);
+  transition: all 0.35s ease;
+}
+
+.rsvp-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.dress-code {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.dress-code span {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+
+/* =====================
+   SECCIÓN EXTRA
+===================== */
+.extra-actions {
+  background: #f6f4f1; /* marfil */
+  text-align: center;
+  padding: 4rem 1.5rem;
+  position: relative;
+}
+
+.extra-actions p {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* BOTÓN PRINCIPAL (FOTOS) */
+.main-action-btn {
+  display: inline-block;
+  padding: 1.1rem 3.2rem;
+  border: 1px solid var(--text);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+}
+
+.main-action-btn:hover {
+  background: var(--text);
+  color: #fff;
+}
+
+/* BOTÓN SECUNDARIO (INVITADOS) */
+.secondary-action {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.secondary-action a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--muted);
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+.secondary-action a:hover {
+  opacity: 1;
+}
+
+/* Icono */
+.secondary-action svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+
+
+    .bw {
+      filter: brightness(0%);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="countdown" id="countdown"></div>
+  <section class="hero">
+    <div class="hero-content">
+      <small>Nuestra Boda</small>
+      <h1>Ángel & Edith</h1>
+      <p class="hero-date">17 de enero de 2026 · 4:00 p.m.</p>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="container">
+      <p>“Uno solo puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe fácilmente!”</p>
+      <span>Eclesiastés 4:12</span>
+    </div>
+  </section>
+
+  <section class="celebration">
+  </section>
+
+  <!--Family-->
+  <section class="family soft-bg">
+    <div class="container">
+      <h2>Nuestros padres</h2>
+      <div class="family-grid">
+        <div>
+          <p>Sebastián Gonzales Gutiérres<br>Olivia Maya Hernández</p>
+        </div>
+        <div>
+          <p>Guillermo Chávez Calderón<br>Ma. Edith Jacobo Jacobo</p>
+        </div>
+      </div>
+
+      <div class="family-divider"></div>
+
+      <div style="margin-top:3rem;">
+        <h2>Nuestros padrinos</h2>
+        <p>Delia Cruz Cervantes<br>Juan Daniel Ortiz Segovia</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- EVENTO -->
+<section class="event">
+  <div class="container">
+
+    <h2>
+      Nos casamos y tenemos el agrado<br>
+      de invitarlos a nuestro enlace matrimonial
+    </h2>
+
+    <div class="event-divider"></div>
+
+    <p>17 de enero de 2026</p>
+
+    <div class="locations">
+
+      <!-- CEREMONIA -->
+      <div class="location-card">
+        <img src="5a018fc57ca233f48ba6271d.png" alt="Ceremonia religiosa">
+        <h3>Ceremonia Religiosa</h3>
+        <p>
+          4:00 P.M.<br>
+          Santuario de Nuestra Señora de Guadalupe<br>
+          Av. Tata Vasco 22, Col. Centro<br>
+          Morelia, Mich.
+        </p>
+        <a href="https://maps.app.goo.gl/m1ncqJGrbpnDrFKk7" target="_blank">
+          Ver ubicación
+        </a>
+      </div>
+
+      <!-- RECEPCIÓN -->
+      <div class="location-card">
+        <img src="pngwing.com.png" alt="Recepción" class="bw">
+        <h3>Recepción</h3>
+        <p>
+          6:00 P.M.<br>
+          Salón Agua Zarca<br>
+          Calle Madero 145, Col. Jesús del Monte<br>
+          Morelia, Mich.
+        </p>
+        <a href="https://maps.app.goo.gl/RFLGnGrAonUZ7nq37" target="_blank">
+          Ver ubicación
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <section class="gallery">
+  <div class="container photo-gallery">
+      <figure>
+        <img src="imgv1.jfif" alt="Ángel y Edith">
+      </figure>
+      <figure>
+        <img src="imgv2.jfif" alt="Momentos especiales">
+      </figure>
+      <figure>
+        <img src="imgv3.jfif" alt="Nuestro camino juntos">
+      </figure>
+    </div>
+</section>
+
+
+  <section class="rsvp">
+  <div class="container">
+    <h2>Confirmación de asistencia</h2>
+    <p>
+      Nos encantaría contar contigo en este día tan especial.
+      Por favor confirma tu asistencia.
+    </p>
+
+    <a
+      class="rsvp-btn"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeCJD6A5fZDbjU4hrlaQXLQvm_mjwF483oc3j3BN03m4Mv80w/viewform?usp=dialog"
+      target="_blank"
+    >
+      Confirmar asistencia
+    </a>
+    <div class="dress-code">
+      <span>El color blanco está reservado para la novia.</span>
+      <span>El color verde olivo está reservado para las damas de honor.</span>
+    </div>
+  </div>
+</section>
+
+  <section class="extra-actions">
+  <p>
+    Aquí podrás compartir las fotografías y videos que tomes durante
+    nuestra boda para que todos podamos revivir esos momentos.
+  </p>
+
+  <!-- BOTÓN PRINCIPAL -->
+  <a
+    href="https://drive.google.com/drive/folders/1jut-y5hmLAprGGk87uFC5aXpvUHlOXzV?usp=sharing"
+    target="_blank"
+    class="main-action-btn"
+  >
+    Compartir fotos
+  </a>
+
+  <!-- BOTÓN DISCRETO -->
+  <div class="secondary-action">
+    <a href="javascript:void(0)" onclick="checkPassword()" title="Invitados confirmados">
+      <!-- Icono personas -->
+      <svg viewBox="0 0 24 24">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+  
+
+  <script>
+    const targetDate = new Date('2026-01-17T16:00:00');
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = '¡Hoy es el gran día!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      countdownEl.textContent = `${days} días · ${hours} h · ${minutes} min`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+  function checkPassword() {
+    const password = prompt("Ingresa la contraseña para ver la lista");
+
+    if (password === "inthesand") {
+      window.open(
+        "https://docs.google.com/spreadsheets/d/1K5epmVJUxgCnN2ta3D_sg_ltIaeg_BLzWG1ov1zKi4c/edit?usp=sharing"
+      );
+    } else if (password !== null) {
+      alert("Contraseña incorrecta");
+    }
+  }
+
+  lucide.createIcons();
+</script>
+<audio id="bg-music" loop>
+  <source src="musicinv.MPEG" type="audio/mpeg">
+</audio>
+<script>
+  const music = document.getElementById('bg-music');
+  music.volume = 0.35;
+  let started = false;
+
+  function startMusic() {
+    if (!started) {
+      music.play().then(() => {
+        started = true;
+        window.removeEventListener('wheel', startMusic);
+        window.removeEventListener('touchstart', startMusic);
+        window.removeEventListener('click', startMusic);
+      }).catch(() => {});
+    }
+  }
+
+  window.addEventListener('wheel', startMusic);
+  window.addEventListener('touchstart', startMusic);
+  window.addEventListener('click', startMusic);
+</script>
+
+</body>
+</html>
