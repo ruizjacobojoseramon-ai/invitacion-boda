@@ -18,7 +18,7 @@
       --muted: #777;
       --bg: #ffffff;
       --soft: #f6f4f1;
-      --accent: #7a8f6b;
+      --accent: #5f6f52;
     }
 
     * {
@@ -173,12 +173,13 @@
 ===================== */
 
 .event {
-  background: #faf9f6; /* marfil suave */
+  background: var(--accent);
   padding: 6rem 1.5rem;
 }
 
 .event h2 {
   font-family: var(--serif);
+  color: #f2efe9; /* marfil */
   font-weight: 400;
   text-align: center;
   margin-bottom: 1.5rem;
@@ -189,7 +190,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #666;
+  color: #f2efe9;
 }
 
 /* línea decorativa */
@@ -211,7 +212,7 @@
 
 /* tarjeta */
 .location-card {
-  background: #ffffff;
+  background: #f2efe9;
   padding: 3rem 2.5rem;
   border-radius: 18px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.04);
@@ -271,7 +272,7 @@
    GALERÍA
 ===================== */
 .gallery {
-  background: #faf9f6; /* marfil suave */
+  background: var(--accent);
   padding: 6rem 1.5rem;
 }
 
@@ -312,8 +313,12 @@
 }
 
 
-    .rsvp {
-  background: #faf9f6; /* marfil, consistente con la galería */
+/* =====================
+   RSVP
+===================== */
+
+.rsvp {
+  background: var(--accent); /* verde oliva */
   text-align: center;
   padding: 6rem 1.5rem;
 }
@@ -322,40 +327,46 @@
   font-family: var(--serif);
   font-weight: 400;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  color: #f2efe9; /* marfil */
 }
 
 .rsvp p {
   max-width: 520px;
   margin: 0 auto;
-  color: var(--muted);
   font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(242,239,233,0.85); /* marfil suave */
 }
 
+/* BOTÓN */
 .rsvp-btn {
   display: inline-block;
   margin-top: 3rem;
   padding: 1rem 3.5rem;
-  border: 1px solid var(--accent);
+  border: 1px solid #f2efe9;
   font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--accent);
+  color: #f2efe9;
+  border-radius: 999px;
   transition: all 0.35s ease;
 }
 
+/* hover elegante */
 .rsvp-btn:hover {
-  background: var(--accent);
-  color: #fff;
+  background: #f2efe9;
+  color: var(--accent);
 }
 
+/* DRESS CODE */
 .dress-code {
-  margin-top: 2.5rem;
+  margin-top: 2.8rem;
   font-size: 0.85rem;
-  color: var(--muted);
   letter-spacing: 0.03em;
+  color: rgba(242,239,233,0.75);
 }
 
 .dress-code span {
@@ -363,31 +374,35 @@
   margin-top: 0.4rem;
 }
 
-
 /* =====================
    SECCIÓN EXTRA
 ===================== */
 .extra-actions {
-  background: #f6f4f1; /* marfil */
+  background: var(--accent);
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 5rem 1.5rem 6rem;
   position: relative;
 }
 
+/* texto descriptivo */
 .extra-actions p {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  color: #f2efe9; /* marfil */
   font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.9;
 }
 
 /* BOTÓN PRINCIPAL (FOTOS) */
 .main-action-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   padding: 1.1rem 3.2rem;
-  border: 1px solid var(--text);
+  border: 1px solid #f2efe9; /* marfil */
   text-decoration: none;
-  color: var(--text);
+  color: #f2efe9;
   font-size: 0.85rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -395,9 +410,17 @@
 }
 
 .main-action-btn:hover {
-  background: var(--text);
-  color: #fff;
+  background: #f2efe9;
+  color: var(--accent);
 }
+
+/* icono */
+.main-action-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.6;
+}
+
 
 /* BOTÓN SECUNDARIO (INVITADOS) */
 .secondary-action {
@@ -410,24 +433,47 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-decoration: none;
-  color: var(--muted);
-  opacity: 0.75;
-  transition: opacity 0.3s ease;
+  color: rgba(242,239,233,0.75);
+  letter-spacing: 0.08em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .secondary-action a:hover {
   opacity: 1;
+  transform: translateY(-1px);
 }
 
-/* Icono */
+/* icono */
 .secondary-action svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
 }
 
+ 
+/*botonmusical*/
+.music-btn {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--text);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+}
+
+.music-btn:hover {
+  background: var(--text);
+  color: #fff;
+}
 
 
     .bw {
@@ -437,15 +483,50 @@
   </style>
 </head>
 <body>
+
+  <!-- Botón de música -->
+    <button id="music-btn" class="music-btn" aria-label="Reproducir música">
+      ♫ Música
+    </button>
+
+    <audio id="bg-music" loop>
+      <source src="musicinv.MPEG" type="audio/mpeg">
+    </audio>
+
+    <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+    let playing = false;
+
+    music.volume = 0.35;
+
+    btn.addEventListener('click', () => {
+      if (!playing) {
+      music.play();
+      btn.textContent = '❚❚ Pausar';
+      playing = true;
+    } else {
+      music.pause();
+      btn.textContent = '♫ Música';
+      playing = false;
+    }
+  });
+    </script>
+
+
+  <!--Countdown-->
   <div class="countdown" id="countdown"></div>
+
+  <!--inicio-->
   <section class="hero">
     <div class="hero-content">
       <small>Nuestra Boda</small>
       <h1>Ángel & Edith</h1>
-      <p class="hero-date">17 de enero de 2026 · 4:00 p.m.</p>
+      <p class="hero-date">17/01/2026</p>
     </div>
   </section>
 
+  <!--bible_phrase-->
   <section class="quote">
     <div class="container">
       <p>“Uno solo puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe fácilmente!”</p>
@@ -532,13 +613,13 @@
   <section class="gallery">
   <div class="container photo-gallery">
       <figure>
-        <img src="imgv1.jfif" alt="Ángel y Edith">
+        <img src="imgh1.jpeg" alt="Ángel y Edith">
       </figure>
       <figure>
-        <img src="imgv2.jfif" alt="Momentos especiales">
+        <img src="imgh2.jpeg" alt="Momentos especiales">
       </figure>
       <figure>
-        <img src="imgv3.jfif" alt="Nuestro camino juntos">
+        <img src="imgh3.jpeg" alt="Nuestro camino juntos">
       </figure>
     </div>
 </section>
@@ -560,8 +641,9 @@
       Confirmar asistencia
     </a>
     <div class="dress-code">
-      <span>El color blanco está reservado para la novia.</span>
-      <span>El color verde olivo está reservado para las damas de honor.</span>
+    <span>El color blanco está reservado para la novia.</span>
+    <span>El color verde olivo está reservado para las damas de honor.
+    </span>
     </div>
   </div>
 </section>
@@ -578,6 +660,7 @@
     target="_blank"
     class="main-action-btn"
   >
+    <i data-lucide="camera"></i>
     Compartir fotos
   </a>
 
@@ -635,30 +718,6 @@
   }
 
   lucide.createIcons();
-</script>
-<audio id="bg-music" loop>
-  <source src="musicinv.mpeg" type="audio/mpeg">
-</audio>
-<script>
-  const music = document.getElementById('bg-music');
-  music.volume = 0.35;
-  let started = false;
-
-  function startMusic() {
-    if (!started) {
-      music.play().then(() => {
-        started = true;
-        window.removeEventListener('wheel', startMusic);
-        window.removeEventListener('touchstart', startMusic);
-        window.removeEventListener('click', startMusic);
-      }).catch(() => {});
-    }
-  }
-
-  window.addEventListener('wheel', startMusic);
-  window.addEventListener('touchstart', startMusic);
-  window.addEventListener('click', startMusic);
-</script>
-
+  </script>
 </body>
 </html>
