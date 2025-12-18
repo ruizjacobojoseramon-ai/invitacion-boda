@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+
 
   <style>
     :root {
@@ -128,8 +131,8 @@
     .quote span {
       display: block;
       margin-top: 1.5rem;
-      font-style: italic;
       font-size: 0.95rem;
+      front-style: italic;
       opacity: 0.85;
     }
 
@@ -163,11 +166,43 @@
       font-size: 1.8rem;
       margin-bottom: 2rem; }
 
+    .family p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #f2efe9;
+    }
+
     .family-grid { 
-      display: grid;
+      display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 4rem;}
+      gap: 4rem;
+      padding: 0 1rem;
+    }
     
+/* =====================
+   SEPARADOR MINIMAL
+===================== */
+
+.rings-separator {
+  display: flex;
+  justify-content: center;
+  margin: 0.3rem 0; /* separación sutil, NO franja */
+}
+
+.rings-separator svg {
+  width: 80px;
+  height: 32px;
+  stroke: #f2efe9; /* marfil */
+  opacity: 0.9;
+  stroke-width: 2.4;
+}
+
+
+
     /* =====================
    EVENTO
 ===================== */
@@ -182,16 +217,21 @@
   color: #f2efe9; /* marfil */
   font-weight: 400;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
 }
 
+
 .event > .container > p {
+  font-family: 'Inter', sans-serif;
   text-align: center;
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #f2efe9;
+  color: rgba(242,239,233,0.85);
 }
+
 
 /* línea decorativa */
 .event-divider {
@@ -269,6 +309,25 @@
 }
 
 /* =====================
+   SEPARADOR OLIVO
+===================== */
+.olive-separator {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0;
+  background: transparent;
+}
+
+.olive-separator svg {
+  width: 110px;
+  height: 24px;
+  stroke: #e9e5dc; /* marfil */
+  stroke-width: 2.4;
+  opacity: 0.9;
+}
+
+
+/* =====================
    GALERÍA
 ===================== */
 .gallery {
@@ -326,18 +385,22 @@
 .rsvp h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  color: #f2efe9; /* marfil */
+  font-size: 1.9rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.3rem;
+  color: #f2efe9;
 }
 
+
 .rsvp p {
+  font-family: var(--sans);
   max-width: 520px;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
-  color: rgba(242,239,233,0.85); /* marfil suave */
+  color: rgba(242,239,233,0.85);
 }
+
 
 /* BOTÓN */
 .rsvp-btn {
@@ -371,8 +434,38 @@
 
 .dress-code span {
   display: block;
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
 }
+
+/* =====================
+   SEPARADOR SIMPLE
+===================== */
+.simple-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 0;
+}
+
+.simple-divider span {
+  position: relative;
+  width: 140px;
+  height: 1px;
+  background: #f2efe9;
+}
+
+.simple-divider span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #f2efe9;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 /* =====================
    SECCIÓN EXTRA
@@ -386,12 +479,12 @@
 
 /* texto descriptivo */
 .extra-actions p {
+  font-family: var(--sans);
   max-width: 520px;
   margin: 0 auto 2.5rem;
-  color: #f2efe9; /* marfil */
+  color: rgba(242,239,233,0.9);
   font-size: 0.95rem;
   line-height: 1.7;
-  opacity: 0.9;
 }
 
 /* BOTÓN PRINCIPAL (FOTOS) */
@@ -490,7 +583,7 @@
     </button>
 
     <audio id="bg-music" loop>
-      <source src="musicinv.mpeg" type="audio/mpeg">
+      <source src="musicinv.MPEG" type="audio/mpeg">
     </audio>
 
     <script>
@@ -559,6 +652,16 @@
     </div>
   </section>
   
+  <!-- Separador minimal -->
+<div class="rings-separator">
+  <svg viewBox="0 0 64 32" aria-hidden="true">
+    <circle cx="22" cy="16" r="10" fill="none" stroke-width="2"/>
+    <circle cx="38" cy="16" r="10" fill="none" stroke-width="2"/>
+  </svg>
+</div>
+
+
+
   <!-- EVENTO -->
 <section class="event">
   <div class="container">
@@ -608,6 +711,22 @@
   </div>
 </section>
 
+<!-- Separador hojas de olivo -->
+<div class="olive-separator">
+  <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- rama -->
+    <line x1="10" y1="12" x2="110" y2="12"/>
+
+    <!-- hojas izquierda -->
+    <path d="M40 12 C34 6, 28 6, 26 12 C28 18, 34 18, 40 12"/>
+    <path d="M52 12 C46 5, 40 5, 38 12 C40 19, 46 19, 52 12"/>
+
+    <!-- hojas derecha -->
+    <path d="M68 12 C74 5, 80 5, 82 12 C80 19, 74 19, 68 12"/>
+    <path d="M80 12 C86 6, 92 6, 94 12 C92 18, 86 18, 80 12"/>
+  </svg>
+</div>
+
 
 
   <section class="gallery">
@@ -624,6 +743,9 @@
     </div>
 </section>
 
+  <div class="simple-divider">
+  <span></span>
+</div>
 
   <section class="rsvp">
   <div class="container">
@@ -647,6 +769,11 @@
     </div>
   </div>
 </section>
+
+  <div class="simple-divider">
+  <span></span>
+</div>
+
 
   <section class="extra-actions">
   <p>
@@ -721,5 +848,3 @@
   </script>
 </body>
 </html>
-
-
