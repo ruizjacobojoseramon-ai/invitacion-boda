@@ -10,11 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+
 
 
 
   <style>
     :root {
+      --info-serif: 'Libre Baskerville', serif;
       --serif: 'Playfair Display', serif;
       --sans: 'Inter', sans-serif;
       --text: #1a1a1a;
@@ -85,26 +92,29 @@
     }
 
     .hero small {
+      font-family: var(--info-serif);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 1.0rem;
     }
 
     .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-family: 'Allura', cursive;
+      font-size: clamp(5.0rem, 7vw, 5.2rem);
       font-weight: 400;
-      margin: 0.75rem 0 0.5rem;
-      color: #f2efe9; /* blanco marfil calido */
-      text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      margin: 0.8rem 0 0.6rem;
+      color: #f2efe9; /* marfil */
+      text-shadow: 0 4px 22px rgba(0,0,0,0.45);
+      letter-spacing: 0.05em;
     }
 
+
     .hero-date {
-      font-family: var(--sans);
+      font-family: var(--info-serif);
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #fff;
       text-shadow: 0 3px 14px rgba(0,0,0,0.35);
     }
@@ -113,28 +123,64 @@
       background: var(--accent); /* verde olivo */
       color: #f4f1ec;            /* marfil */
       text-align: center;
-      padding: 3rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
 
     .quote .container {
       max-width: 780px;
       margin: 0 auto;
+      position: relative; /*con esto posicioné la cita*/
     }
 
     .quote p {
-      font-family: var(--serif);
-      font-size: 1.7rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+      margin: 0;
     }
 
     .quote span {
+      front-family: var(--info-serif);
       display: block;
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      front-style: italic;
+      margin-top: 1.8rem;
+      font-size: 0.85rem;
+      front-style: normal;
       opacity: 0.85;
+      text-align: right;
     }
+    
+    /* =====================
+   ORNAMENTO FRASE
+===================== */
+.quote-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0rem;
+  margin-top: 0.25rem;
+}
+
+.quote-ornament span {
+  display: block;
+}
+
+.quote-ornament span:first-child,
+.quote-ornament span:last-child {
+  width: 70px;
+  height: 1px;
+  background: #f2efe9; /* marfil */
+  opacity: 0.7;
+}
+
+.quote-ornament .cross {
+  font-size: 1.2rem;
+  color: #f2efe9; /* marfil */
+  opacity: 0.85;
+  line-height: 1;
+}
+
 
     .celebration {
       min-height: 80vh;
@@ -154,6 +200,15 @@
       text-align: center;
       padding: 5rem 1.5rem;}
 
+    .family-ornament {
+      margin: 3rem auto;
+      font-size: 1.4rem;
+      color: #f2efe9;           /* marfil */
+      opacity: 0.85;
+      text-align: center;
+      line-height: 1;
+    }
+
     .family-divider {
       width: 60px;
       height: 1px;
@@ -161,16 +216,16 @@
       margin: 2.5rem auto;}
 
     .family h2 { 
-      font-family: var(--serif);
+      font-family: 'Great Vibes', cursive;
       font-weight: 400;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       margin-bottom: 2rem; }
 
     .family p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
+      font-family: var(--info-serif);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 2.0;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #f2efe9;
@@ -187,19 +242,8 @@
    SEPARADOR MINIMAL
 ===================== */
 
-.rings-separator {
-  display: flex;
-  justify-content: center;
-  margin: 0.3rem 0; /* separación sutil, NO franja */
-}
 
-.rings-separator svg {
-  width: 80px;
-  height: 32px;
-  stroke: #f2efe9; /* marfil */
-  opacity: 0.9;
-  stroke-width: 2.4;
-}
+
 
 
 
@@ -213,20 +257,20 @@
 }
 
 .event h2 {
-  font-family: var(--serif);
-  color: #f2efe9; /* marfil */
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
+  font-size: 2.5rem;        
   text-align: center;
-  margin-bottom: 1.2rem;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
+  color: #f2efe9;           /* marfil */
+  margin-bottom: 1.8rem;
 }
 
 
+
 .event > .container > p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--info-serif);
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(242,239,233,0.85);
@@ -275,14 +319,15 @@
 
 /* títulos */
 .location-card h3 {
-  font-family: var(--serif);
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 2.0rem;
   margin-bottom: 1rem;
 }
 
 /* texto */
 .location-card p {
+  font-family: var(--info-serif);
   ont-size: 0.95rem;
   line-height: 1.7;
   color: #555;
@@ -319,12 +364,13 @@
 }
 
 .olive-separator svg {
-  width: 110px;
+  width: 160px; /* antes 110px */
   height: 24px;
-  stroke: #e9e5dc; /* marfil */
+  stroke: #e9e5dc;
   stroke-width: 2.4;
   opacity: 0.9;
 }
+
 
 
 /* =====================
@@ -383,17 +429,17 @@
 }
 
 .rsvp h2 {
-  font-family: var(--serif);
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
-  font-size: 1.9rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.3rem;
-  color: #f2efe9;
+  font-size: 2.5rem;        
+  text-align: center;
+  color: #f2efe9;           /* marfil */
+  margin-bottom: 1.8rem;
 }
 
 
 .rsvp p {
-  font-family: var(--sans);
+  font-family: var(--info-serif);
   max-width: 520px;
   margin: 0 auto;
   font-size: 0.95rem;
@@ -426,8 +472,9 @@
 
 /* DRESS CODE */
 .dress-code {
+  font-family: var(--info-serif);
   margin-top: 2.8rem;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   letter-spacing: 0.03em;
   color: rgba(242,239,233,0.75);
 }
@@ -444,7 +491,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.7rem 0;
+  padding: 1.2rem 0;
 }
 
 .simple-divider span {
@@ -466,6 +513,24 @@
   transform: translate(-50%, -50%);
 }
 
+/* =====================
+   SEPARADOR LAUREL V2
+===================== */
+.laurel-separator.alt {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0;
+}
+
+.laurel-separator.alt svg {
+  width: 170px;
+  height: 32px;
+  stroke: #e9e5dc; /* marfil */
+  stroke-width: 2;
+  opacity: 0.85;
+}
+
+
 
 /* =====================
    SECCIÓN EXTRA
@@ -479,7 +544,7 @@
 
 /* texto descriptivo */
 .extra-actions p {
-  font-family: var(--sans);
+  font-family: var(--info-serif);
   max-width: 520px;
   margin: 0 auto 2.5rem;
   color: rgba(242,239,233,0.9);
@@ -583,7 +648,7 @@
     </button>
 
     <audio id="bg-music" loop>
-      <source src="musicinv.MPEG" type="audio/mpeg">
+      <source src="musicinv.mpeg" type="audio/mpeg">
     </audio>
 
     <script>
@@ -623,6 +688,11 @@
   <section class="quote">
     <div class="container">
       <p>“Uno solo puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe fácilmente!”</p>
+      <div class="quote-ornament">
+  <span></span>
+  <span class="cross">✝</span>
+  <span></span>
+</div>
       <span>Eclesiastés 4:12</span>
     </div>
   </section>
@@ -643,7 +713,7 @@
         </div>
       </div>
 
-      <div class="family-divider"></div>
+      <div class="family-ornament">__________❦__________</div>
 
       <div style="margin-top:3rem;">
         <h2>Nuestros padrinos</h2>
@@ -652,14 +722,21 @@
     </div>
   </section>
   
-  <!-- Separador minimal -->
-<div class="rings-separator">
-  <svg viewBox="0 0 64 32" aria-hidden="true">
-    <circle cx="22" cy="16" r="10" fill="none" stroke-width="2"/>
-    <circle cx="38" cy="16" r="10" fill="none" stroke-width="2"/>
+<!-- Separador hojas de olivo -->
+<div class="olive-separator">
+  <svg viewBox="0 0 180 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- rama -->
+    <line x1="10" y1="12" x2="170" y2="12"/>
+
+    <!-- hojas izquierda -->
+    <path d="M60 12 C54 6, 48 6, 46 12 C48 18, 54 18, 60 12"/>
+    <path d="M72 12 C66 5, 60 5, 58 12 C60 19, 66 19, 72 12"/>
+
+    <!-- hojas derecha -->
+    <path d="M108 12 C114 5, 120 5, 122 12 C120 19, 114 19, 108 12"/>
+    <path d="M120 12 C126 6, 132 6, 134 12 C132 18, 126 18, 120 12"/>
   </svg>
 </div>
-
 
 
   <!-- EVENTO -->
@@ -713,19 +790,20 @@
 
 <!-- Separador hojas de olivo -->
 <div class="olive-separator">
-  <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg viewBox="0 0 180 24" xmlns="http://www.w3.org/2000/svg" fill="none">
     <!-- rama -->
-    <line x1="10" y1="12" x2="110" y2="12"/>
+    <line x1="10" y1="12" x2="170" y2="12"/>
 
     <!-- hojas izquierda -->
-    <path d="M40 12 C34 6, 28 6, 26 12 C28 18, 34 18, 40 12"/>
-    <path d="M52 12 C46 5, 40 5, 38 12 C40 19, 46 19, 52 12"/>
+    <path d="M60 12 C54 6, 48 6, 46 12 C48 18, 54 18, 60 12"/>
+    <path d="M72 12 C66 5, 60 5, 58 12 C60 19, 66 19, 72 12"/>
 
     <!-- hojas derecha -->
-    <path d="M68 12 C74 5, 80 5, 82 12 C80 19, 74 19, 68 12"/>
-    <path d="M80 12 C86 6, 92 6, 94 12 C92 18, 86 18, 80 12"/>
+    <path d="M108 12 C114 5, 120 5, 122 12 C120 19, 114 19, 108 12"/>
+    <path d="M120 12 C126 6, 132 6, 134 12 C132 18, 126 18, 120 12"/>
   </svg>
 </div>
+
 
 
 
@@ -743,9 +821,22 @@
     </div>
 </section>
 
-  <div class="simple-divider">
-  <span></span>
+<!-- Separador laurel clásico -->
+<div class="laurel-separator alt">
+  <svg viewBox="0 0 200 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- rama central -->
+    <line x1="20" y1="16" x2="180" y2="16"/>
+
+    <!-- hojas izquierda -->
+    <path d="M70 16 C64 10, 58 12, 60 16 C58 20, 64 22, 70 16"/>
+    <path d="M90 16 C84 9, 78 11, 80 16 C78 21, 84 23, 90 16"/>
+
+    <!-- hojas derecha -->
+    <path d="M110 16 C116 9, 122 11, 120 16 C122 21, 116 23, 110 16"/>
+    <path d="M130 16 C136 10, 142 12, 140 16 C142 20, 136 22, 130 16"/>
+  </svg>
 </div>
+
 
   <section class="rsvp">
   <div class="container">
@@ -770,10 +861,9 @@
   </div>
 </section>
 
-  <div class="simple-divider">
+<div class="simple-divider">
   <span></span>
 </div>
-
 
   <section class="extra-actions">
   <p>
@@ -848,3 +938,4 @@
   </script>
 </body>
 </html>
+
